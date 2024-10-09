@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - Modern Design</title>
+    <script src="converter.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        button {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 10px; /* Added padding */
+            background-color: #FFA500; /* Explicit background color for visibility */
+            color: #ffffff; /* Explicit text color for visibility */
+            font-weight: bold; /* Make text bold for better readability */
+            outline: 2px solid red; /* Temporary outline to help debug */
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-50 to-green-50 text-gray-900 min-h-screen flex flex-col">
+    <!-- Sticky Navigation Bar -->
+    <nav class="bg-gradient-to-r from-blue-600 to-green-600 text-white p-5 fixed top-0 left-0 w-full shadow-md z-10">
+        <ul class="flex justify-center space-x-10 font-semibold text-lg">
+            <li><a href="#weight" class="hover:text-yellow-300">Weight</a></li>
+            <li><a href="#distance" class="hover:text-yellow-300">Distance</a></li>
+            <li><a href="#temperature" class="hover:text-yellow-300">Temperature</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container mx-auto flex-grow mt-20 p-4">
+        <!-- Grid Layout for Forms -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Weight Conversion Section -->
+            <section id="weight" class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+                <i class="fas fa-weight fa-4x text-green-500 mb-4"></i> <!-- Weight Icon -->
+                <h2 class="text-3xl font-bold mb-4 text-center">Weight Conversion</h2>
+                <form class="flex flex-col space-y-4 w-full">
+                    <label for="weightValue" class="font-medium">Enter Weight:</label>
+                    <input type="text" id="weightValue" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-300" placeholder="e.g. 70 or 70, 80">
+                    <select id="weightUnit" class="p-3 border border-gray-300 rounded-lg">
+                        <option value="kg-lb">Kilograms to Pounds</option>
+                        <option value="lb-kg">Pounds to Kilograms</option>
+                    </select>
+                    <button type="button" onclick="convertWeight()" class="bg-green-500 text-white py-3 rounded-lg hover:bg-green-600">Convert</button>
+                </form>
+                <div id="weightResult" class="mt-4 text-lg font-semibold"></div>
+            </section>
+
+            <!-- Distance Conversion Section -->
+            <section id="distance" class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+                <i class="fas fa-road fa-4x text-orange-500 mb-4"></i> <!-- Distance Icon -->
+                <h2 class="text-3xl font-bold mb-4 text-center">Distance Conversion</h2>
+                <form class="flex flex-col space-y-4 w-full">
+                    <label for="distanceValue" class="font-medium">Enter Distance:</label>
+                    <input type="text" id="distanceValue" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-300" placeholder="e.g. 10 or 10, 20">
+                    <select id="distanceUnit" class="p-3 border border-gray-300 rounded-lg">
+                        <option value="km-mi">Kilometers to Miles</option>
+                        <option value="mi-km">Miles to Kilometers</option>
+                    </select>
+                    <button type="button" onclick="convertDistance()" class="bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">Convert</button>
+                </form>
+                <div id="distanceResult" class="mt-4 text-lg font-semibold"></div>
+            </section>
+
+            <!-- Temperature Conversion Section -->
+            <section id="temperature" class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center transform transition duration-500 hover:scale-105">
+                <i class="fas fa-thermometer-half fa-4x text-blue-500 mb-4"></i> <!-- Temperature Icon -->
+                <h2 class="text-3xl font-bold mb-4 text-center">Temperature Conversion</h2>
+                <form class="flex flex-col space-y-4 w-full">
+                    <label for="temperatureValue" class="font-medium">Enter Temperature:</label>
+                    <input type="text" id="temperatureValue" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300" placeholder="e.g. 25 or 25, 30">
+                    <select id="temperatureUnit" class="p-3 border border-gray-300 rounded-lg">
+                        <option value="c-f">Celsius to Fahrenheit</option>
+                        <option value="f-c">Fahrenheit to Celsius</option>
+                    </select>
+                    <button type="button" onclick="convertTemperature()" class="bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600">Convert</button>
+                </form>
+                <div id="temperatureResult" class="mt-4 text-lg font-semibold"></div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
